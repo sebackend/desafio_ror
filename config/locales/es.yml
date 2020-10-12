@@ -1,0 +1,77 @@
+es:
+  api:
+    v1:
+      page:
+        contact:
+          error: 'Ha ocurrido un error al enviar el email, intente nuevamente.'
+          no_email: 'Email no presente.'
+          no_message: 'Mensaje no presente.'
+          no_contact: 'Ha ocurrido un error al enviar el email, email de contacto no definido.'
+          success: 'Email enviado correctamente'
+        show:
+          error: 'Página no encontrada.'
+      user:
+        password:
+          no_pass: 'La clave no esta presente'
+          no_current: 'Tu clave actual no esta presente'
+          no_match: 'Tu clave actual no esta correcta'
+          success: 'Clave cambiada exitosamente.'
+      recover:
+        forgot:
+          error: 'Email no encontrado. Por favor revisa e intenta nuevamente.'
+          no_email: 'Email no presente.'
+          success: 'Se ha enviado un correo con las instrucciones.'
+        reset:
+          error: 'El Link no es válido o ya expiró. Intenta generar uno nuevo.'
+          no_token: 'El Token no esta presente'
+          no_pass: 'La clave no esta presente'
+          success: 'Clave cambiada exitosamente.'
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'La validación falló: %{errors}'
+        restrict_dependent_destroy:
+          has_one: No se puede eliminar el registro porque existe un %{record} dependiente
+          has_many: No se puede eliminar el registro porque existen %{record} dependientes
+        not_found: No encontrado
+  errors:
+    format: '%{attribute} %{message}'
+    messages:
+      blank: 'no puede estar en blanco'
+      empty: 'no puede estar vacío'
+      invalid: 'no es válido'
+      required: 'debe existir'
+      taken: 'ya está en uso'
+  mailer:
+    user:
+      recover:
+        subject: 'Recuperación de contraseña'
+    page:
+      contact:
+        subject: 'Quieren contactarse contigo'
+  date:
+    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
+    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names:
+      [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+    order:
+      - :day
+      - :month
+      - :year
+    formats:
+      default: '%d/%m/%Y'
+      long: '%-d de %B de %Y'
+      short: '%-d de %b'
+  time:
+    am: am
+    formats:
+      chat: '%-d de %B a las %H:%M'
+      default: '%A, %-d de %B de %Y %H:%M:%S %z'
+      long: '%-d de %B de %Y %H:%M'
+      short: '%-d de %b %H:%M'
+      date: '%d/%m/%Y'
+      datetime: '%-d/%-m/%Y %H:%M'
+    pm: pm
