@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root to: 'api/v1/credits#index'
+  root to: 'api/v1/credit_queries#tmc'
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resources :credits, only: %i[index]
+      resources :credit_queries, only: [] do
+        collection do
+          get :tmc
+        end
+      end
     end
   end
 end

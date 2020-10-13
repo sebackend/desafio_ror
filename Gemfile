@@ -13,6 +13,7 @@ gem 'rails',        '~> 5.1.7'
 gem 'rest-client',  '~> 2.0.2'
 
 group :development, :test do
+  gem 'awesome_print', '~> 1.8.0'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'pry-byebug', '~> 3.9.0'
 end
