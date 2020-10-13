@@ -3,29 +3,35 @@
 require 'rails_helper'
 
 RSpec.describe 'CreditQueries', type: :request do
-  let!(:url) { '/api/v1/credits/tmc' }
+  let!(:url) { '/api/v1/credit_queries/tmc' }
 
   describe 'GET#tmc' do
     context 'when correct params' do
-      before { get url, params: { uf_amount: '1000', term_days: 90, target_date: '2020-01-10' } }
+      let!(:credit_query) { build(:credit_query) }
 
-      it 'returns tmc' do
-        expect(response).not_to be_empty
+      before do
+        attributes = credit_query.attributes
+        get url, params: attributes
       end
 
-      it 'returns status code 200' do
+      it 'should be ok' do
         expect(response).to have_http_status(:ok)
+      end
+
+      it 'returns tmc' do
+        expect(response.body).not_to be_empty
       end
     end
 
     context 'when incorrect params' do
       before { get url, params: {} }
 
-      it 'returns tmc' do
-        expect(response).to be_empty
+      it 'returns invalid tmc' do
+        message = JSON.parse(response.body)['message']
+        expect(message).not_to be_empty
       end
 
-      it 'returns status code 200' do
+      it 'returns status code 422' do
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
