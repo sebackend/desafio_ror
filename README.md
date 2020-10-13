@@ -1,24 +1,23 @@
-# README
+# Desafío Cumplo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Para consultar el TMC de un monto y fecha, se utiliza el endpoint donde se aloja el proyecto (Heroku)
 
-Things you may want to cover:
+[https://cumplocl.herokuapp.com/api/v1/credit_queries/tmc](https://cumplocl.herokuapp.com/api/v1/credit_queries/tmc)
 
-* Ruby version
+Los parámetros que recibe son
 
-* System dependencies
+* **uf_amount**: Monto en UF
+* **term_days**: plazo en días
+* **target_date**: fecha por la cual se desea consulta el valor de la TMC
+* **code_type** (OPCIONAL): Tipo de operación, si no se incluye, se tomará el primer resultado que entregue la SBIF
 
-* Configuration
+Ejemplo:
+[https://cumplocl.herokuapp.com/api/v1/credit_queries/tmc?uf_amount=1000&term_days=90&target_date=2020-02-20&code_type=45](https://cumplocl.herokuapp.com/api/v1/credit_queries/tmc?uf_amount=1000&term_days=90&target_date=2020-02-20&code_type=45)
 
-* Database creation
+La respuesta que entrega será un JSON con el detalle de la consulta y entre ellos, el valor del TMC (**tmc_val**)
 
-* Database initialization
+    {"uf_amount": "1000.0","term_days": 90,"target_date": "2020-02-20","tmc_val": "34.82","code_type": 45}
 
-* How to run the test suite
+Adicionalmente, se agregaron test básicos para validación de modelo y de requests con rspec, shoulda_matchers, factory_bot, para ello basta con ejecutar en la terminal:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    $ bundle exec rspec
