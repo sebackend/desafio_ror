@@ -5,6 +5,7 @@ ruby '2.4.2'
 
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'active_model_serializers', '~> 0.10.10'
 gem 'dotenv-rails', '~> 2.4.0'
 gem 'pg',           '>= 0.18', '< 2.0'
 gem 'puma',         '~> 3.7'
