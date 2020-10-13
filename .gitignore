@@ -17,7 +17,6 @@
 /tmp
 .env
 .DS_Store
-config/secrets.yml
 config/database.yml
 
 .byebug_history
